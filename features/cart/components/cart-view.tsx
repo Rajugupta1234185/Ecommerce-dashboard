@@ -23,7 +23,7 @@ export function CartView() {
 
   const total = useMemo(() => calculateTotal(items), [items]);
 
-  // Wait for localStorage, otherwise returning users see "empty" for a split second
+
   if (!hydrated) return <CartSkeleton />;
 
   if (items.length === 0) {

@@ -15,7 +15,6 @@ function makeResponse(status: number, body = ""): Response {
 const jsonResponse = (data: unknown, status = 200) =>
   makeResponse(status, JSON.stringify(data));
 
-/** Awaits a promise that must reject with an ApiError, and returns that error. */
 async function getApiError(promise: Promise<unknown>): Promise<ApiError> {
   try {
     await promise;
@@ -62,7 +61,6 @@ describe("httpClient", () => {
   it("rejects a body that is not valid JSON", async () => {
     fetchMock.mockResolvedValueOnce(makeResponse(200, "<html>oops</html>"));
 
-    // retries: 0, because a 502 counts as temporary and would be retried
     const error = await getApiError(httpClient("/products", { retries: 0 }));
 
     expect(error.status).toBe(502);

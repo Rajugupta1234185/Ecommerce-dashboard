@@ -7,7 +7,6 @@ import { AUTH_COOKIE, AUTH_COOKIE_MAX_AGE_SECONDS } from "../constants";
 import { login } from "../services/auth.service";
 import type { LoginFormState } from "../types/auth.types";
 
-/** Only allow same-site relative paths, to prevent open redirects. */
 function getSafeRedirect(value: FormDataEntryValue | null): string {
   const path = typeof value === "string" ? value : "";
   return path.startsWith("/") && !path.startsWith("//") ? path : "/products";
@@ -41,7 +40,7 @@ export async function loginAction(
     return { error: "Something went wrong. Please try again." };
   }
 
-  // redirect() works by throwing, so it must stay OUTSIDE the try/catch
+
   redirect(redirectTo);
 }
 

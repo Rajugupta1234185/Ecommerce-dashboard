@@ -2,13 +2,9 @@ import { env } from "@/lib/config/env";
 import { ApiError } from "./api-error";
 
 type RequestOptions = Omit<RequestInit, "body"> & {
-  /** Plain object; it is JSON-stringified for you */
   body?: unknown;
-  /** Abort each attempt after this many ms (default 8000) */
   timeoutMs?: number;
-  /** Extra attempts for temporary failures on GET requests (default 2) */
   retries?: number;
-  /** Next.js caching options, e.g. { revalidate: 300 } */
   next?: NextFetchRequestConfig;
 };
 

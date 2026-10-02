@@ -6,6 +6,6 @@ export function login(credentials: LoginCredentials): Promise<LoginResponse> {
   return httpClient<LoginResponse>(ENDPOINTS.login, {
     method: "POST",
     body: credentials,
-    cache: "no-store", // never cache a login
+    cache: "no-store", 
   });
 }

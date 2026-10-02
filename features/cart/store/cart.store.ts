@@ -3,7 +3,6 @@ import { createJSONStorage, persist } from "zustand/middleware";
 import { CART_STORAGE_KEY, MAX_ITEM_QUANTITY } from "../constants";
 import type { CartState } from "../types/cart.types";
 
-/** Keep quantity a whole number between 1 and the max. */
 function clampQuantity(quantity: number): number {
   return Math.min(Math.max(1, Math.floor(quantity)), MAX_ITEM_QUANTITY);
 }
@@ -17,7 +16,6 @@ export const useCartStore = create<CartState>()(
         set((state) => {
           const existing = state.items.find((item) => item.productId === product.id);
 
-          // Already in the cart: increase the quantity instead of adding a duplicate line
           if (existing) {
             return {
               items: state.items.map((item) =>

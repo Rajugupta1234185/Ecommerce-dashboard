@@ -23,7 +23,6 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   const { sort } = await searchParams;
   const order: SortOrder = sort === "desc" ? "desc" : "asc";
 
-  // Two independent requests, so run them in parallel
   const [products, categories] = await Promise.all([getProducts(order), getCategories()]);
 
   return (

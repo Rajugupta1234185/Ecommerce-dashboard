@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { CART_STORAGE_KEY } from "../constants";
 import { useCartStore } from "../store/cart.store";
 
-//saved cart data
 export function CartHydrator() {
   useEffect(() => {
     useCartStore.persist.rehydrate();
