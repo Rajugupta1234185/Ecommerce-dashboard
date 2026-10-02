@@ -25,7 +25,6 @@ type ButtonStyleOptions = {
   className?: string;
 };
 
-/** Class builder, so <Link> can look like a button too: <Link className={buttonStyles()} /> */
 export function buttonStyles({
   variant = "primary",
   size = "md",

@@ -22,7 +22,7 @@ const getProduct = cache(async (id: string) => {
     return product;
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) notFound();
-    throw error; // anything else goes to the nearest error.tsx
+    throw error; 
   }
 });
 

@@ -19,14 +19,13 @@ export function RouteError({ error, reset, title, description }: RouteErrorViewP
   const [isRetrying, startTransition] = useTransition();
 
   useEffect(() => {
-    // In a real product, send this to Sentry/Datadog. `digest` matches the server log.
     console.error(error);
   }, [error]);
 
   function retry() {
     startTransition(() => {
-      router.refresh(); // re-run the server component (refetch)
-      reset(); // then re-render the segment
+      router.refresh();
+      reset(); 
     });
   }
 

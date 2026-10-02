@@ -13,7 +13,6 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <article className="group relative flex h-full flex-col rounded-xl has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-4 has-[:focus-visible]:outline-ring">
-      {/* Image tile: white product photos dissolve into the tile via mix-blend-multiply */}
       <div className="relative aspect-square overflow-hidden rounded-xl border bg-muted transition-colors group-hover:border-primary/40">
         <Image
           src={image}
@@ -29,7 +28,6 @@ export function ProductCard({ product }: ProductCardProps) {
 
       <div className="mt-3 flex flex-1 flex-col gap-1.5">
         <h3 className="line-clamp-2 text-sm font-semibold leading-snug">
-          {/* Stretched link: the whole card is clickable */}
           <Link
             href={`/products/${id}`}
             className="outline-none after:absolute after:inset-0 group-hover:text-primary"

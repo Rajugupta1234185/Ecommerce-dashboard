@@ -45,13 +45,11 @@ export function useProductFilters() {
         writeParam(params, key, patch[key] ?? null);
       });
 
-      // Changing any filter sends the user back to page 1
       if (!("page" in patch)) params.delete("page");
 
       const query = params.toString();
       const url = query ? `?${query}` : window.location.pathname;
 
-      // Native history API: Next syncs useSearchParams, and no server round trip happens
       if (mode === "push") window.history.pushState(null, "", url);
       else window.history.replaceState(null, "", url);
     },
